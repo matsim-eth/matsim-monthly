@@ -1,0 +1,14 @@
+language: java
+jdk: oraclejdk8
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer    # https://github.com/travis-ci/travis-ci/issues/3259
+script:
+  - git clone https://github.com/matsim-org/matsim.git
+  - sh prepare.sh
+  - cd $BASE_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true
+  - cd $BASE_DIR/matsim && mvn deploy -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml
+cache:
+  directories:
+  - $HOME/.m2
