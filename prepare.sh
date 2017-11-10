@@ -39,3 +39,8 @@ done
 echo "Rewriting bintray repository"
 cd $TRAVIS_BUILD_DIR/matsim/matsim
 sed -i -E "s&https://api.bintray.com/maven/matsim/matsim/matsim&https://api.bintray.com/maven/matsim-eth/matsim/matsim/&" pom.xml
+
+# Remove integration tests, otherwise Travis will not be able to run through
+echo "Disabling integration tests"
+cd $TRAVIS_BUILD_DIR/matsim/matsim
+sed -i -E "s&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&" pom.xml
