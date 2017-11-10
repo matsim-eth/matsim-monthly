@@ -6,7 +6,7 @@ addons:
       - oracle-java8-installer    # https://github.com/travis-ci/travis-ci/issues/3259
 script:
   - git clone --depth 1 https://github.com/matsim-org/matsim.git
-  - sh prepare.sh
+  - bash prepare.sh
   - cd $TRAVIS_BUILD_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true
   - cd $TRAVIS_BUILD_DIR/matsim && mvn deploy -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml
   - echo "TODO: MODIFYING THE CHANGE LOG"
