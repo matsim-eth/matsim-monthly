@@ -9,6 +9,7 @@ script:
   - sh prepare.sh
   - cd $BASE_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true
   - cd $BASE_DIR/matsim && mvn deploy -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml
+  - echo "TODO: MODIFYING THE CHANGE LOG"
 cache:
   directories:
   - $HOME/.m2
