@@ -48,3 +48,10 @@ cd $TRAVIS_BUILD_DIR/matsim/matsim
 perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
 cd $TRAVIS_BUILD_DIR/matsim/contribs
 perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
+
+
+# Remove benchmark and distribution
+echo "Removing benchmark and distribution"
+cd $TRAVIS_BUILD_DIR/matsim
+sed -i -E "s&<module>distribution</module>&&" pom.xml
+sed -i -E "s&<module>benchmark</module>&&" pom.xml

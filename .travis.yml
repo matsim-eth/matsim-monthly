@@ -7,7 +7,7 @@ addons:
 script:
   - git clone --depth 1 https://github.com/matsim-org/matsim.git
   - bash prepare.sh
-  - cd $TRAVIS_BUILD_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true
+  - cd $TRAVIS_BUILD_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true --fail-at-end
   - cd $TRAVIS_BUILD_DIR/matsim && mvn deploy -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml
   - echo "TODO: MODIFYING THE CHANGE LOG"
 cache:
