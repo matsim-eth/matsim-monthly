@@ -20,10 +20,11 @@ echo "Snapshot version is: $snapshot_version"
 echo "Proposed monthly tag is: $monthly_tag"
 echo "Proposed monthly version is: $monthly_version"
 
-status=$( true || curl https://api.bintray.com/packages/matsim-eth/matsim/matsim/versions/_latest | grep $monthly_version )
+status=$( curl https://api.bintray.com/packages/matsim-eth/matsim/matsim/versions/_latest | grep $monthly_version )
 
 if [ $status ]; then
     echo "Package for $( date +"%B %Y" ) already exists on bintray"
+    export SKIP_BUILD=43
     exit 0
 fi
 
