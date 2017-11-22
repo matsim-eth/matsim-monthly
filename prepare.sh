@@ -24,7 +24,7 @@ status=$( curl https://api.bintray.com/packages/matsim-eth/matsim/matsim/version
 
 if [ $status ]; then
     echo "Package for $( date +"%B %Y" ) already exists on bintray"
-    export SKIP_BUILD=43
+    touch skip_build
     exit 0
 fi
 
