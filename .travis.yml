@@ -12,7 +12,7 @@ stages:
 script:
     - git clone --depth 1 https://github.com/matsim-org/matsim.git
     - bash prepare.sh
-    - test -e skip_build || (mvn install --also-make --projects ${MODULE} -DskipTests && cd ${TRAVIS_BUILD_DIR}/matsim/${MODULE} && mvn failsafe:integration-test --batch-mode -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true --fail-at-end)
+    - test -e skip_build || (cd $TRAVIS_BUILD_DIR/matsim && mvn install --also-make --projects ${MODULE} -DskipTests && cd ${TRAVIS_BUILD_DIR}/matsim/${MODULE} && mvn failsafe:integration-test --batch-mode -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true --fail-at-end)
 jobs:
   include:
     - stage: package
