@@ -52,11 +52,11 @@ perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifa
 
 
 # Remove benchmark and distribution
-echo "Removing benchmark, distribution, examples (they cannot be deployed)"
-cd $TRAVIS_BUILD_DIR/matsim
-sed -i -E "s&<module>distribution</module>&&" pom.xml
-sed -i -E "s&<module>benchmark</module>&&" pom.xml
-sed -i -E "s&<module>examples</module>&&" pom.xml
+#echo "Removing benchmark, distribution, examples (they cannot be deployed)"
+#cd $TRAVIS_BUILD_DIR/matsim
+#sed -i -E "s&<module>distribution</module>&&" pom.xml
+#sed -i -E "s&<module>benchmark</module>&&" pom.xml
+#sed -i -E "s&<module>examples</module>&&" pom.xml
 
 # Prepare bintray deployment
 echo $monthly_version > version.txt
