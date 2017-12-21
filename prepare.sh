@@ -44,11 +44,11 @@ cd $TRAVIS_BUILD_DIR/matsim/contribs
 sed -i -E "s&https://api.bintray.com/maven/matsim/matsim/matsim&https://api.bintray.com/maven/matsim-eth/matsim/matsim/&" pom.xml
 
 # Remove integration tests, otherwise Travis will not be able to run through
-echo "Disabling integration tests"
-cd $TRAVIS_BUILD_DIR/matsim/matsim
-perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
-cd $TRAVIS_BUILD_DIR/matsim/contribs
-perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
+#echo "Disabling integration tests"
+#cd $TRAVIS_BUILD_DIR/matsim/matsim
+#perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
+#cd $TRAVIS_BUILD_DIR/matsim/contribs
+#perl -i -p0e 's&<plugin>\s+<groupId>org.apache.maven.plugins</groupId>\s+<artifactId>maven-failsafe-plugin</artifactId>.+?</plugin>&&se' pom.xml
 
 
 # Remove benchmark and distribution
