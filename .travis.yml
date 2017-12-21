@@ -24,7 +24,7 @@ jobs:
       script:
           - git clone --depth 1 https://github.com/matsim-org/matsim.git
           - bash prepare.sh
-          - test -e skip_build || (cd $TRAVIS_BUILD_DIR/matsim && mvn install -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true --fail-at-end)
+          - test -e skip_build || (cd $TRAVIS_BUILD_DIR/matsim && mvn install -DskipTests -B -Dmaven.test.redirectTestOutputToFile -Dmatsim.preferLocalDtds=true --fail-at-end)
           - test -e skip_build || (cd $TRAVIS_BUILD_DIR/matsim/matsim && mvn deploy -B -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml)
           - test -e skip_build || (cd $TRAVIS_BUILD_DIR/matsim/contribs && mvn deploy -B -DskipTests=true --settings=$TRAVIS_BUILD_DIR/settings.xml)
           - test -e skip_build || (curl --user $BINTRAY_USER:$BINTRAY_PASSWORD -X POST https://api.bintray.com/content/matsim-eth/matsim/matsim/`cat version.txt`/publish)
