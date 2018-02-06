@@ -59,4 +59,5 @@ sed -i -E "s&https://api.bintray.com/maven/matsim/matsim/matsim&https://api.bint
 #sed -i -E "s&<module>examples</module>&&" pom.xml
 
 # Prepare bintray deployment
+cd $TRAVIS_BUILD_DIR
 echo $monthly_version > version.txt
